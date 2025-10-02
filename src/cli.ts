@@ -28,9 +28,9 @@ Options:
 export async function main(args: string[]) {
   const parsed = parseArgs(args, {
     boolean: ["help"],
-    string: ["configJson"],
+    string: ["config-json"],
     alias: { h: "help" },
-    default: { help: false, configJson: "{}" },
+    default: { help: false, "config-json": "{}" },
   });
 
   if (parsed.help) {
@@ -45,7 +45,7 @@ export async function main(args: string[]) {
   }
 
   // parse any config
-  const config = JSON.parse(parsed.configJson);
+  const config = JSON.parse(parsed["config-json"]);
   if (Object.keys(config).length > 0) {
     console.error("Using config:", config);
   }
