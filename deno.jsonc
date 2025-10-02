@@ -10,19 +10,21 @@
     "all-reload": "               deno fmt && deno lint --fix && deno task check-reload && deno task readme && deno task test --reload && deno task coverage",
     "check": "                    deno check         ",
     "check-reload": "             deno check --reload",
-    "test": "                     deno test --coverage --trace-leaks --allow-env=VERBOSE --allow-import",
-    "test-watch": "               deno test --watch    --trace-leaks --allow-env=VERBOSE --allow-import",
+    "test": "                     deno test --coverage --trace-leaks --allow-env=VERBOSE",
+    "test-watch": "               deno test --watch    --trace-leaks --allow-env=VERBOSE",
     "coverage": "                 deno coverage",
     "readme": "                   touch README.md && chmod +w README.md && ./readme/generate-readme.ts readme/README.md > README.md && deno fmt README.md; chmod -w README.md",
     "release": "                  echo 'ERROR: Not usually a good idea to do the release locally. Instead, push the main branch, and let the release workflow perform the actual release.'; exit 2",
     "release-for-real": "         deno task all && test -z \"$(git status --porcelain)\" && deno --allow-all npm:fork-version@3.0.1/cli --tag-prefix='' --changelog-all --skip-tag && deno fmt CHANGELOG.md && git add CHANGELOG.md && git commit --amend --no-edit && NEW_VERSION=$(deno --allow-all npm:fork-version@3.0.1/cli --tag-prefix='' --inspect-version) && git tag $NEW_VERSION && git push origin main $NEW_VERSION",
-    "on-file-save": "             sh -c 'err=$(NO_COLOR=1 deno fmt \"$1\" 2>&1); if [ $? -eq 0 ] || [ \"$err\" != \"error: No target files found.\" ]; then echo \"$err\"; fi; if [ \"$(echo \"$1\" | cut -c 1-7)\" = \"readme/\" ]; then deno task readme; fi' -s"
+    "on-file-save": "             sh -c 'err=$(NO_COLOR=1 deno fmt \"$1\" 2>&1); if [ $? -eq 0 ] || [ \"$err\" != \"error: No target files found.\" ]; then echo \"$err\"; fi; if [ \"$(echo \"$1\" | cut -c 1-7)\" = \"readme/\" ]; then deno task readme; fi' -s",
+    "update-wasm": "              ./update-wasm.ts"
   },
   "lock": false,
   "unstable": [
     "raw-imports"
   ],
   "imports": {
+    "@hugojosefson/run-simple": "jsr:@hugojosefson/run-simple@^2.4.0",
     "@img/png": "jsr:@img/png@^0.1.6",
     "@resvg/resvg-js": "npm:@resvg/resvg-js@^2.6.2",
     "@resvg/resvg-wasm": "npm:@resvg/resvg-wasm@^2.6.2",

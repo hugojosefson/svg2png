@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run --allow-write=smiley.png --allow-import
+#!/usr/bin/env -S deno run --allow-write=smiley.png
 import type { ResvgRenderOptions } from "../src/re-exported-types.ts";
 import { svg2png } from "../src/svg2png.ts";
 /** A simple SVG of a smiley face. */

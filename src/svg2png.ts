@@ -1,5 +1,5 @@
-import { getDynamicModules } from "./get-dynamic-modules.ts";
 import { getReadyToUseResvgClass } from "./get-ready-to-use-resvg-class.ts";
+import { getStaticModules } from "./get-static-modules.ts";
 import type {
   ResvgClassType,
   ResvgRenderOptions,
@@ -20,7 +20,7 @@ export async function svg2png(
   options?: ResvgRenderOptions,
   resvgModules:
     | ResvgModules<typeof ResvgClassType>
-    | Promise<ResvgModules<typeof ResvgClassType>> = getDynamicModules(),
+    | Promise<ResvgModules<typeof ResvgClassType>> = getStaticModules(),
 ): Promise<Uint8Array<ArrayBuffer>> {
   const Resvg: typeof ResvgClassType = await getReadyToUseResvgClass(
     await resvgModules,

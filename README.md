@@ -53,7 +53,7 @@ console.log("smiley.png created!");
 You may run the above example with:
 
 ```sh
-deno run --reload jsr:@hugojosefson/resvg-deno/example-usage
+deno run --reload --allow-write=smiley.png jsr:@hugojosefson/resvg-deno/example-usage
 ```
 
 For further usage examples, see the tests:
