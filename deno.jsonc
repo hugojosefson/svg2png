@@ -7,7 +7,7 @@
     "./example-usage": "./readme/example-usage.ts"
   },
   "tasks": {
-    "all": "                      deno fmt && deno lint --fix && deno task check        && deno task readme && deno task test          && deno task coverage",
+    "all": "                      deno fmt && deno lint --fix && deno task check        && deno task readme && deno task test          && deno task coverage && deno publish --dry-run",
     "all-reload": "               deno fmt && deno lint --fix && deno task check-reload && deno task readme && deno task test --reload && deno task coverage",
     "check": "                    deno check         ",
     "check-reload": "             deno check --reload",
