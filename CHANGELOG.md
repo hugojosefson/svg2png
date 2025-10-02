@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [fork-version](https://github.com/eglavin/fork-version) for commit guidelines.
 
+## 1.0.1 (2025-10-02)
+
+### Other Changes
+
+- version 1
+  ([450c3d5](https://github.com/hugojosefson/svg2png/commit/450c3d5c356e8b65c582ce6386847d1fe9c6fa64))
+
 ## 0.1.0 (2025-10-02)
 
 ### ⚠ BREAKING CHANGES
