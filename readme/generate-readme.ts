@@ -78,12 +78,12 @@ function processLineForImport(
       if (step2 === "src/resvg.ts") {
         return line.replace(
           /\sfrom\s+"(\..*)"/,
-          ` from "@hugojosefson/resvg-deno"`,
+          ` from "@hugojosefson/svg2png"`,
         );
       }
       return line.replace(
         /\sfrom\s+"(\..*)"/,
-        ` from "@hugojosefson/resvg-deno/${step2}"`,
+        ` from "@hugojosefson/svg2png/${step2}"`,
       );
     }
     return line;
