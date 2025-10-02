@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [fork-version](https://github.com/eglavin/fork-version) for commit guidelines.
 
+## 0.0.5 (2025-10-02)
+
+### Bug Fixes
+
+- cli args parsing
+  ([033806f](https://github.com/hugojosefson/svg2png/commit/033806f79f3abd8f767e0c0d94e31b6a47a7953f))
+
 ## 0.0.4 (2025-10-02)
 
 ### Bug Fixes
