@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [fork-version](https://github.com/eglavin/fork-version) for commit guidelines.
 
+## 0.0.3 (2025-10-02)
+
+### Features
+
+- enable cli
+  ([7cc483f](https://github.com/hugojosefson/svg2png/commit/7cc483f0e6a3d05a861c7d7436bccf5d9dd252b3))
+
 ## 0.0.2 (2025-10-02)
 
 ### Other Changes
