@@ -1,4 +1,4 @@
-import { getStaticModules } from "./get-static-modules.ts";
+import { getDynamicModules } from "./get-dynamic-modules.ts";
 import { getReadyToUseResvgClass } from "./get-ready-to-use-resvg-class.ts";
 import type {
   ResvgClassType,
@@ -18,10 +18,12 @@ export type { ResvgRenderOptions };
 export async function svg2png(
   svg: string | Uint8Array,
   options?: ResvgRenderOptions,
-  resvgModules: ResvgModules<typeof ResvgClassType> = getStaticModules(),
+  resvgModules:
+    | ResvgModules<typeof ResvgClassType>
+    | Promise<ResvgModules<typeof ResvgClassType>> = getDynamicModules(),
 ): Promise<Uint8Array<ArrayBuffer>> {
   const Resvg: typeof ResvgClassType = await getReadyToUseResvgClass(
-    resvgModules,
+    await resvgModules,
   );
   const resvg = new Resvg(svg, options);
   return Uint8Array.from(resvg.render().asPng());
