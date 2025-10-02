@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [fork-version](https://github.com/eglavin/fork-version) for commit guidelines.
 
+## 0.0.4 (2025-10-02)
+
+### Bug Fixes
+
+- only print config when defined
+  ([cf67895](https://github.com/hugojosefson/svg2png/commit/cf6789509ae92bc046e440b4f04eab42d84ddfc4))
+
 ## 0.0.3 (2025-10-02)
 
 ### Features
