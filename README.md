@@ -10,7 +10,7 @@ Requires [Deno](https://deno.com/) v2.5.2 or later.
 
 ## CLI
 
-Converts SVG from stdin to PNG on stdout.
+Converts SVG from stdin, to PNG on stdout.
 
 ```bash
 deno run jsr:@hugojosefson/svg2png < input.svg > output.svg
@@ -18,7 +18,9 @@ deno run jsr:@hugojosefson/svg2png < input.svg > output.svg
 
 Supports confuguration as JSON via the `--config-json` flag. See
 `ResvgRenderOptions` at
-https://github.com/thx/resvg-js/blob/main/wasm/index.d.ts for details. Example:
+https://github.com/thx/resvg-js/blob/main/wasm/index.d.ts for details.
+
+Example CLI with config:
 
 ```bash
 deno run jsr:@hugojosefson/svg2png \
@@ -41,9 +43,9 @@ deno add jsr:@hugojosefson/svg2png
 ### Example usage via API
 
 ```typescript
-import type { ResvgRenderOptions } from "@hugojosefson/svg2png/src/re-exported-types.ts";
-import { svg2png } from "@hugojosefson/svg2png/src/svg2png.ts";
-/** A simple SVG of a smiley face. */
+import { type ResvgRenderOptions, svg2png } from "@hugojosefson/svg2png";
+
+// An example SVG of a smiley face
 const svgSmile = `
 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
   <circle cx="50" cy="50" r="40" fill="yellow" stroke="black" stroke-width="3" />
@@ -53,7 +55,7 @@ const svgSmile = `
 </svg>
 `.trim();
 
-/** What we want to do with the SVG. */
+// What we want to do with the SVG
 const opts = {
   fitTo: {
     mode: "width",
@@ -61,10 +63,11 @@ const opts = {
   },
 } satisfies ResvgRenderOptions;
 
-/** Render the PNG */
-const pngBytes = await svg2png(svgSmile, opts);
-await Deno.writeFile("smiley.png", pngBytes);
+// Render the PNG
+const pngBytes: Uint8Array = await svg2png(svgSmile, opts);
 
+// Write the PNG to a file
+await Deno.writeFile("smiley.png", pngBytes);
 console.log("smiley.png created!");
 ```
 

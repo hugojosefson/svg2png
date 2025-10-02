@@ -1,3 +1,4 @@
+import { main } from "./cli.ts";
 import { getReadyToUseResvgClass } from "./get-ready-to-use-resvg-class.ts";
 import { getStaticModules } from "./get-static-modules.ts";
 import type {
@@ -27,4 +28,9 @@ export async function svg2png(
   );
   const resvg = new Resvg(svg, options);
   return Uint8Array.from(resvg.render().asPng());
+}
+
+// Since this is exported as the default module, we can run the CLI if started with `deno run`
+if (import.meta.main) {
+  await main(Deno.args);
 }

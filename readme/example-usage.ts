@@ -1,7 +1,7 @@
 #!/usr/bin/env -S deno run --allow-write=smiley.png
-import type { ResvgRenderOptions } from "../src/re-exported-types.ts";
-import { svg2png } from "../src/svg2png.ts";
-/** A simple SVG of a smiley face. */
+import { type ResvgRenderOptions, svg2png } from "../src/svg2png.ts";
+
+// An example SVG of a smiley face
 const svgSmile = `
 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
   <circle cx="50" cy="50" r="40" fill="yellow" stroke="black" stroke-width="3" />
@@ -11,7 +11,7 @@ const svgSmile = `
 </svg>
 `.trim();
 
-/** What we want to do with the SVG. */
+// What we want to do with the SVG
 const opts = {
   fitTo: {
     mode: "width",
@@ -19,8 +19,9 @@ const opts = {
   },
 } satisfies ResvgRenderOptions;
 
-/** Render the PNG */
-const pngBytes = await svg2png(svgSmile, opts);
-await Deno.writeFile("smiley.png", pngBytes);
+// Render the PNG
+const pngBytes: Uint8Array = await svg2png(svgSmile, opts);
 
+// Write the PNG to a file
+await Deno.writeFile("smiley.png", pngBytes);
 console.log("smiley.png created!");

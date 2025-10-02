@@ -10,7 +10,7 @@ Requires [Deno](https://deno.com/) v2.5.2 or later.
 
 ## CLI
 
-Converts SVG from stdin to PNG on stdout.
+Converts SVG from stdin, to PNG on stdout.
 
 ```bash
 deno run jsr:@hugojosefson/svg2png < input.svg > output.svg
@@ -18,7 +18,9 @@ deno run jsr:@hugojosefson/svg2png < input.svg > output.svg
 
 Supports confuguration as JSON via the `--config-json` flag. See
 `ResvgRenderOptions` at
-https://github.com/thx/resvg-js/blob/main/wasm/index.d.ts for details. Example:
+https://github.com/thx/resvg-js/blob/main/wasm/index.d.ts for details.
+
+Example CLI with config:
 
 ```bash
 deno run jsr:@hugojosefson/svg2png \
