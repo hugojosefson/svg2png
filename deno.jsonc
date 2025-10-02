@@ -1,6 +1,6 @@
 {
   "name": "@hugojosefson/svg2png",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "license": "MIT",
   "exports": {
     ".": "./src/svg2png.ts",
