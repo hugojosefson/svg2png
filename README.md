@@ -8,19 +8,37 @@
 
 Requires [Deno](https://deno.com/) v2.5.2 or later.
 
+## CLI
+
+Converts SVG from stdin to PNG on stdout.
+
+```bash
+deno run jsr:@hugojosefson/svg2png < input.svg > output.svg
+```
+
+Supports confuguration as JSON via the `--config-json` flag. See
+`ResvgRenderOptions` at
+https://github.com/thx/resvg-js/blob/main/wasm/index.d.ts for details. Example:
+
+```bash
+deno run jsr:@hugojosefson/svg2png \
+  --config-json='{"fitTo":{"mode":"width","value":1200}}' \
+  < input.svg > output_w1200.svg
+```
+
 ## API
 
 Please see docs on
 [jsr.io/@hugojosefson/svg2png](https://jsr.io/@hugojosefson/svg2png).
 
-## Installation
+### Installation
 
 ```sh
 # add as dependency to your project
 deno add jsr:@hugojosefson/svg2png
 ```
 
-## Example usage
+### Example usage via API
 
 ```typescript
 import type { ResvgRenderOptions } from "@hugojosefson/svg2png/src/re-exported-types.ts";

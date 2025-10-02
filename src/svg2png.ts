@@ -11,7 +11,7 @@ export type { ResvgRenderOptions };
 /**
  * Converts SVG to PNG.
  * @param svg - SVG content as string | Uint8Array
- * @param options - Optional rendering options for Resvg
+ * @param options - Optional rendering options for Resvg. See ResvgRenderOptions at https://github.com/thx/resvg-js/blob/main/wasm/index.d.ts
  * @param resvgModules - Optional Resvg modules, defaults to static import
  * @returns A promise that resolves to a Uint8Array containing the PNG data
  */
