@@ -43,11 +43,20 @@ export async function main(args: string[]) {
     console.error(USAGE);
     Deno.exit(2);
   }
-  const config = JSON.parse(parsed.configJson);
-  console.error("Using config:", config);
 
+  // parse any config
+  const config = JSON.parse(parsed.configJson);
+  if (Object.keys(config).length > 0) {
+    console.error("Using config:", config);
+  }
+
+  // read svg from stdin
   const svg = await toText(Deno.stdin.readable);
+
+  // convert to png
   const png = await svg2png(svg, config);
+
+  // write png to stdout
   await writeAll(Deno.stdout, png);
 }
 
