@@ -75,7 +75,7 @@ function processLineForImport(
         (new URL(importPath, `file://${inputFilePath}`)).pathname;
       const gitRoot = (new URL("../", import.meta.url)).pathname;
       const step2: string = relative(gitRoot, step1);
-      if (step2 === "mod.ts") {
+      if (step2 === "src/resvg.ts") {
         return line.replace(
           /\sfrom\s+"(\..*)"/,
           ` from "@hugojosefson/resvg-deno"`,
